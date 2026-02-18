@@ -993,7 +993,18 @@
 <div class="toast-container" id="toast-container"></div>
 
 <script>
-// ---- DATA ----
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set, onValue } from "firebase/database";
+
+const firebaseConfig = {
+  apiKey: "PASTE-YOUR-KEY-HERE",
+  authDomain: "PASTE-YOUR-DOMAIN-HERE",
+  databaseURL: "PASTE-YOUR-DATABASE-URL-HERE",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+  // ---- DATA ----
 const rooms = [
   { id: 1, name: "Room 1", hyg: "Sarah K.", status: "waiting", since: "2m ago" },
   { id: 2, name: "Room 2", hyg: "Maria L.", status: "clear", since: "" },
